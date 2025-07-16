@@ -9,6 +9,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
   <style>
     html {
       scroll-behavior: smooth;
@@ -20,26 +23,28 @@
       overflow-x: hidden;
     }
 
-    .fade-in-up {
-      will-change: transform, opacity;
-      backface-visibility: hidden;
-      transform: translateY(30px);
-      opacity: 0;
-      animation: fadeInUp 1.2s ease forwards;
-      animation-delay: 0.3s;
+    .navbar .nav-link {
+      transition: all 0.3s ease;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
     }
 
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .navbar .nav-link.active {
+      color: orange !important;
+      border-color: orange;
+    }
+
+
+    section {
+      padding-top: 80px;
+      padding-bottom: 80px;
+      margin-top: 80px;
     }
 
     .hero-section {
       background: linear-gradient(to right, #ffffff);
       border-radius: 10px;
-      padding: 60px 30px;
+      padding: 30px 30px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
 
@@ -70,43 +75,16 @@
       box-shadow: 1px 1px 10px black;
     }
 
-    /* Navbar styling */
-    .navbar .nav-link {
-      transition: all 0.3s ease;
-      border-bottom: 2px solid transparent;
-      padding-bottom: 4px;
-    }
-
-    .navbar .nav-link.active {
-      color: orange !important;
-      border-color: orange;
-    }
-
-    .project-card {
-    width: 300px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    }
-
     .project-card img {
-    height: 160px;
-    object-fit: cover;
+      height: 200px;
+      object-fit: cover;
     }
-
-    .project-card .card-body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    }
-
   </style>
 </head>
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg bg-body-white shadow-sm ">
+  <nav class="navbar navbar-expand-lg bg-body-white shadow-sm">
     <div class="container">
       <a class="navbar-brand fw-bold" href="#">MyPortofolio</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -116,40 +94,31 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="#home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About me</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#project">Project</a>
-          </li>
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About me</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#project">Project</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Header / Hero Section -->
-  <section id="home" class="container hero-section mt-5 fade-in-up" style="margin-top: 100px;">
+  <!-- Hero Section -->
+  <section id="home" class="container hero-section" style="margin-top: 50px;" data-aos="fade-up">
     <div class="row align-items-center">
-      <!-- Left Text -->
       <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
         <h1 class="fw-bold">Halo, Saya Muhammad Hafiizh Alfath</h1>
-        <p class="mb-4">
-          Seorang mahasiswa yang sedang menekuni dunia pemrograman, dan berharap besar akan sukses dalam mengambil langkah ini.
-        </p>
-        <div class="d-flex justify-content-center justify-content-md-start gap-4 fs-4 social-icons">
-          <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
-          <a href="#" title="TikTok"><i class="bi bi-tiktok"></i></a>
+        <h6 class="fw-bold">Frontend developer</h6>
+        <p>Seorang mahasiswa yang sedang menekuni dunia pemrograman, dan berharap besar akan sukses dalam mengambil langkah ini.</p>
+        <div class="d-flex justify-content-center justify-content-md-start gap-4 fs-4 social-icons mb-3">
+          <a href="https://instagram.com/hafiizh.m1/" title="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.facebook.com/alfth.hfizh/" title="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.tiktok.com/@alpaaathfzh" title="TikTok"><i class="bi bi-tiktok"></i></a>
+        </div>
+        <div class="text-md-start bg-white">
+          <a href="CV_Hafiizh.pdf" class="btn btn-outline-primary btn-sm px-4 py-2" download>Download CV</a>
         </div>
       </div>
-
-      <!-- Right Image -->
       <div class="col-md-6 text-center">
         <img src="i.jpg" alt="Foto Saya" class="img-fluid profile-img">
       </div>
@@ -157,45 +126,31 @@
   </section>
 
   <!-- About Section -->
-  <section id="about" class="container my-5 fade-in-up">
-    <div class="text-center mb-4">
-      <h2 class="fw-bold">Cerita Singkat Tentang Saya</h2>
-      <p class="text-muted">Beberapa hal menarik tentang perjalanan saya</p>
-    </div>
-    <div class="row g-4 justify-content-center">
-      <!-- Card 1 -->
-      <div class="col-md-4">
-        <div class="card shadow-sm h-100">
-          <div class="card-body">
-            <h5 class="card-title">Awal Mula Tertarik Koding</h5>
-            <hr>
-            <p class="card-text">
-              Ketertarikan saya terhadap dunia koding berawal dari rasa penasaran bagaimana sebuah aplikasi bekerja. Dari situ saya mulai belajar HTML, CSS, Codeigniter, hingga Flutter.
-            </p>
-          </div>
-        </div>
+  <section id="about" class="container my-5" data-aos="fade-up">
+    <div class="row align-items-center">
+      <div class="col-md-5 text-center mb-4 mb-md-0">
+        <img src="me.jpg" alt="Foto Saya" class="img-fluid shadow"
+          style="max-width: 300px; width: 100%; height: 400px; object-fit: cover; border-radius: 10px;">
       </div>
-      <!-- Card 2 -->
-      <div class="col-md-4">
-        <div class="card shadow-sm h-100">
-          <div class="card-body">
-            <h5 class="card-title">Project Pertama</h5>
-            <hr>
-            <p class="card-text">
-              Project pertama saya adalah membuat sebuah website tentang pemain sepakbola bernama "Bambang Pamungkas" dari klub "Persija Jakarta".
-            </p>
+      <div class="col-md-7">
+        <h4 class="fw-bold mb-3">Tentang Saya</h4>
+        <p>Seorang mahasiswa yang sedang menekuni dunia pemrograman. Saya memiliki minat besar dalam mengembangkan website dan aplikasi mobile, terutama menggunakan HTML, CSS, Javascript, CodeIgniter, dan Flutter.</p>
+        <p>Saya sangat antusias belajar teknologi baru dan bercita-cita menjadi seorang frontend developer profesional yang mampu menciptakan solusi digital yang bermanfaat bagi banyak orang.</p>
+        <p>Saya percaya bahwa konsistensi dan semangat belajar adalah kunci utama dalam dunia teknologi yang terus berkembang.  
+           Saya terbiasa bekerja secara mandiri maupun dalam tim, dan saya menikmati tantangan yang mendorong saya untuk berpikir kreatif.  
+           Kedepannya, saya ingin terus mengasah kemampuan saya dan berkontribusi dalam menciptakan produk digital yang berkualitas tinggi.</p>
+        <div class="row text-center mt-4">
+          <div class="col-4">
+            <h5 class="fw-bold mb-0">6+</h5>
+            <small class="text-muted">Projek Selesai</small>
           </div>
-        </div>
-      </div>
-      <!-- Card 3 -->
-      <div class="col-md-4">
-        <div class="card shadow-sm h-100">
-          <div class="card-body">
-            <h5 class="card-title">Harapan ke Depan</h5>
-            <hr>
-            <p class="card-text">
-              Saya berharap bisa menjadi developer profesional dan menciptakan aplikasi yang bermanfaat bagi banyak orang. Semangat belajar akan terus saya jaga.
-            </p>
+          <div class="col-4">
+            <h5 class="fw-bold mb-0">1 Tahun</h5>
+            <small class="text-muted">Belajar Koding</small>
+          </div>
+          <div class="col-4">
+            <h5 class="fw-bold mb-0">HTML</h5>
+            <small class="text-muted">Stack Favorit</small>
           </div>
         </div>
       </div>
@@ -203,89 +158,93 @@
   </section>
 
   <!-- Project Section -->
-<section id="project" class="container my-5 fade-in-up">
-  <div class="text-center mb-4">
-    <h2 class="fw-bold">Projek Saya</h2>
-    <p class="text-muted">Berikut adalah beberapa project yang pernah saya buat.</p>
-  </div>
-  <div class="row g-4 justify-content-center">
-    
-    <!-- Project Card 1 -->
-    <div class="col-md-4 d-flex justify-content-center">
-      <div class="card shadow-sm project-card">
-        <img src="i.jpg" class="card-img-top" alt="Project 1">
-        <div class="card-body">
-          <h5 class="card-title">Website Profil Pemain Bola</h5>
-          <p class="card-text">Website HTML & CSS tentang pemain sepakbola Bambang Pamungkas dari klub Persija Jakarta.</p>
-          <a href="https://hafiizh452.github.io/hbd/eca/" target="_blank" class="btn btn-outline-primary btn-sm">Lihat Project</a>
-        </div>
-      </div>
+  <section id="project" class="container" data-aos="fade-up">
+    <div class="text-center mb-4">
+      <h4 class="fw-bold">Project Saya</h4>
+      <p class="text-muted">Beberapa project yang pernah saya kerjakan selama proses belajar.</p>
     </div>
-
-    <!-- Project Card 2 -->
-    <div class="col-md-4 d-flex justify-content-center">
-      <div class="card shadow-sm project-card">
-        <img src="logo.png" class="card-img-top" alt="Project 2">
-        <div class="card-body">
-          <h5 class="card-title">Aplikasi Toko Baju Flutter</h5>
-          <p class="card-text">Aplikasi mobile Flutter untuk toko baju pria, lengkap dengan login, keranjang, dan upload gambar.</p>
-          <a href="https://github.com/username/flutter-toko-baju" target="_blank" class="btn btn-outline-primary btn-sm">Lihat Project</a>
-        </div>
+    <div class="row g-4">
+  <div class="col-md-4" data-aos="fade-up">
+    <div class="card h-100 shadow-sm project-card">
+      <img src="i.jpg" class="card-img-top" alt="Project Bola">
+      <div class="card-body">
+        <h5 class="card-title">Website Profil Pemain Bola</h5>
+        <p class="card-text">Website HTML & CSS tentang pemain Bambang Pamungkas dari klub Persija Jakarta.</p>
       </div>
-    </div>
-
-    <!-- Project Card 3 -->
-    <div class="col-md-4 d-flex justify-content-center">
-      <div class="card shadow-sm project-card">
-        <img src="me.jpg" class="card-img-top" alt="Project 3">
-        <div class="card-body">
-          <h5 class="card-title">Portofolio Pribadi</h5>
-          <p class="card-text">Situs portofolio pribadi responsif yang dibuat dengan HTML, Bootstrap, dan efek animasi CSS.</p>
-          <a href="https://username.github.io/portofolio" target="_blank" class="btn btn-outline-primary btn-sm">Lihat Project</a>
-        </div>
+      <div class="card-footer bg-white border-top-0">
+        <a href="#" target="_blank" class="btn btn-outline-primary btn-sm w-100">Lihat Project</a>
       </div>
     </div>
   </div>
+
+  <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+    <div class="card h-100 shadow-sm project-card">
+      <img src="logo.png" class="card-img-top" alt="Flutter App">
+      <div class="card-body">
+        <h5 class="card-title">Aplikasi Toko Baju Flutter</h5>
+        <p class="card-text">Aplikasi mobile Flutter dengan fitur login, keranjang, dan upload gambar produk.</p>
+      </div>
+      <div class="card-footer bg-white border-top-0">
+        <a href="#" target="_blank" class="btn btn-outline-primary btn-sm w-100">Lihat Project</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+    <div class="card h-100 shadow-sm project-card">
+      <img src="me.jpg" class="card-img-top" alt="Portofolio">
+      <div class="card-body">
+        <h5 class="card-title">Portofolio Pribadi</h5>
+        <p class="card-text">Website portofolio pribadi yang dibuat dengan Bootstrap dan animasi CSS, responsif untuk semua perangkat.</p>
+      </div>
+      <div class="card-footer bg-white border-top-0">
+        <a href="#" target="_blank" class="btn btn-outline-primary btn-sm w-100">Lihat Project</a>
+      </div>
+    </div>
+  </div>
+</div>
 </section>
 
-<!-- Contact Section -->
-<section id="contact" class="container my-5 fade-in-up">
+
+  <!-- Contact Section -->
+  <section id="contact" class="container" data-aos="fade-up">
     <form id="contactForm">
-  <div class="text-center mb-4">
-    <h2 class="fw-bold">Hubungi Saya</h2>
-    <p class="text-muted">Silakan hubungi saya melalui form di bawah ini.</p>
-  </div>
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <form>
-        <div class="mb-3">
-          <label for="name" class="form-label">Nama</label>
-          <input type="text" class="form-control" id="name" placeholder="Masukkan nama Anda" required>
+      <div class="text-center mb-4">
+        <h4 class="fw-bold">Hubungi Saya</h4>
+        <p class="text-muted">Silakan hubungi saya melalui form di bawah ini.</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="mb-3">
+            <label for="name" class="form-label">Nama</label>
+            <input type="text" class="form-control" id="name" placeholder="Masukkan nama Anda" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Masukkan email Anda" required>
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Pesan</label>
+            <textarea class="form-control" id="message" rows="5" placeholder="Tulis pesan Anda..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary px-4">Kirim</button>
         </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" placeholder="Masukkan email Anda" required>
-        </div>
-        <div class="mb-3">
-          <label for="message" class="form-label">Pesan</label>
-          <textarea class="form-control" id="message" rows="5" placeholder="Tulis pesan Anda..." required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary px-4">Kirim</button>
-      </form>
-    </div>
-  </div>
-</section>
+      </div>
+    </form>
+  </section>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- JS: Ubah active menu saat diklik -->
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
+    AOS.init();
+
     document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Mencegah reload halaman
-    alert('Pesan Anda telah berhasil dikirim!');
-    this.reset(); // Optional: untuk mengosongkan form setelah kirim
-  });
+      e.preventDefault();
+      alert('Pesan Anda telah berhasil dikirim!');
+      this.reset();
+    });
 
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
@@ -295,5 +254,6 @@
       });
     });
   </script>
+
 </body>
 </html>
